@@ -38,11 +38,11 @@ namespace Ontaz.Api
         public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
 
-            if (env.IsDevelopment())
-            {
+            //if (env.IsDevelopment())
+            //{
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            //}
 
             app.UseHttpsRedirection();
 
