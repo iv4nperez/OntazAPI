@@ -9,6 +9,7 @@ namespace Ontaz.Api.Infraestructure
         public static void ConfigureServices(this IServiceCollection service)
         {
             service.AddTransient<ICountryService, CountryService>();
+            service.AddTransient<ICategoryService, CategoryService>();
         }
     }
 }
