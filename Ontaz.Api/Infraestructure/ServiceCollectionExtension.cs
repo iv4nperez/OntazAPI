@@ -10,6 +10,7 @@ namespace Ontaz.Api.Infraestructure
         {
             service.AddTransient<ICountryService, CountryService>();
             service.AddTransient<ICategoryService, CategoryService>();
+            service.AddTransient<IServiceService, ServiceService>();
         }
     }
 }
