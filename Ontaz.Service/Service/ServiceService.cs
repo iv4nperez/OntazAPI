@@ -30,8 +30,9 @@ namespace Ontaz.Service.Service
                     .Select( x => new ServiceListResponse {
                         IdService = x.IdService,
                         ImageService = x.ImageService ?? "",
-                        NameService = x.NameService ?? ""
-                     })
+                        NameService = x.NameService ?? "",
+                        DescriptionService = x.DescriptionService ?? ""
+                    })
                     .ToListAsync();
 
                 result = new ResponseModel()

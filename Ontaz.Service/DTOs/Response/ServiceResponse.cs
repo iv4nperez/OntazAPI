@@ -10,6 +10,7 @@ namespace Ontaz.Service.DTOs.Response
     {
         public long IdService { get; set; }
         public string NameService { get; set; } = string.Empty;
+        public string DescriptionService { get; set; } = string.Empty;
         public string ImageService { get; set; } = string.Empty;
     }
 
