@@ -12,6 +12,8 @@ namespace Ontaz.Service.DTOs.Response
         public string NameService { get; set; } = string.Empty;
         public string DescriptionService { get; set; } = string.Empty;
         public string ImageService { get; set; } = string.Empty;
+        public int DiscountService { get; set; }
+        public int Raiting { get; set; }
     }
 
     public class ServiceResponse
