@@ -27,6 +27,7 @@ namespace Ontaz.Dal.DBOntaz.Context
         public virtual DbSet<State> States { get; set; } = null!;
         public virtual DbSet<Subscription> Subscriptions { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<VwService> VwServices { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -347,6 +348,36 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.IdCity)
                     .HasConstraintName("fk_user_city");
+            });
+
+            modelBuilder.Entity<VwService>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("vw_services");
+
+                entity.Property(e => e.DescriptionService)
+                    .HasMaxLength(1500)
+                    .IsUnicode(false)
+                    .HasColumnName("description_service");
+
+                entity.Property(e => e.DiscountService).HasColumnName("discount_service");
+
+                entity.Property(e => e.IdCategory).HasColumnName("id_category");
+
+                entity.Property(e => e.IdService).HasColumnName("id_service");
+
+                entity.Property(e => e.ImageService)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("image_service");
+
+                entity.Property(e => e.NameService)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("name_service");
+
+                entity.Property(e => e.Raiting).HasColumnName("raiting");
             });
 
             OnModelCreatingPartial(modelBuilder);

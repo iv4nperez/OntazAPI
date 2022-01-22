@@ -25,13 +25,15 @@ namespace Ontaz.Service.Service
 
             try
             {
-                var services = await _context.Services
+                var services = await _context.VwServices
                     .Where(x => x.IdCategory == IdCategory)
                     .Select( x => new ServiceListResponse {
                         IdService = x.IdService,
                         ImageService = x.ImageService ?? "",
                         NameService = x.NameService ?? "",
-                        DescriptionService = x.DescriptionService ?? ""
+                        DescriptionService = x.DescriptionService ?? "",
+                        DiscountService = x.DiscountService ?? 0,
+                        Raiting = x.Raiting,
                     })
                     .ToListAsync();
 
