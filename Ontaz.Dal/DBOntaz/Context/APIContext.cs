@@ -28,6 +28,7 @@ namespace Ontaz.Dal.DBOntaz.Context
         public virtual DbSet<Subscription> Subscriptions { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<VwService> VwServices { get; set; } = null!;
+        public virtual DbSet<VwServicesDetail> VwServicesDetails { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -246,6 +247,11 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasColumnName("verified_service")
                     .HasDefaultValueSql("((0))");
 
+                entity.Property(e => e.WhatsappService)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("whatsapp_service");
+
                 entity.HasOne(d => d.IdCategoryNavigation)
                     .WithMany(p => p.Services)
                     .HasForeignKey(d => d.IdCategory)
@@ -378,6 +384,66 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasColumnName("name_service");
 
                 entity.Property(e => e.Raiting).HasColumnName("raiting");
+            });
+
+            modelBuilder.Entity<VwServicesDetail>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("vw_services_detail");
+
+                entity.Property(e => e.DescriptionService)
+                    .HasMaxLength(1500)
+                    .IsUnicode(false)
+                    .HasColumnName("description_service");
+
+                entity.Property(e => e.DiscountService).HasColumnName("discount_service");
+
+                entity.Property(e => e.HomeService).HasColumnName("home_service");
+
+                entity.Property(e => e.IdCategory).HasColumnName("id_category");
+
+                entity.Property(e => e.IdService).HasColumnName("id_service");
+
+                entity.Property(e => e.IdUser).HasColumnName("id_user");
+
+                entity.Property(e => e.ImageService)
+                    .HasMaxLength(1000)
+                    .IsUnicode(false)
+                    .HasColumnName("image_service");
+
+                entity.Property(e => e.InternationalCode)
+                    .HasMaxLength(3)
+                    .IsUnicode(false)
+                    .HasColumnName("international_code")
+                    .IsFixedLength();
+
+                entity.Property(e => e.Latitud).HasColumnName("latitud");
+
+                entity.Property(e => e.Longitud).HasColumnName("longitud");
+
+                entity.Property(e => e.NameService)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("name_service");
+
+                entity.Property(e => e.PhoneService)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("phone_service");
+
+                entity.Property(e => e.Raiting)
+                    .HasColumnType("decimal(10, 1)")
+                    .HasColumnName("raiting");
+
+                entity.Property(e => e.RegDeleted).HasColumnName("reg_deleted");
+
+                entity.Property(e => e.VerifiedService).HasColumnName("verified_service");
+
+                entity.Property(e => e.WhatsappService)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("whatsapp_service");
             });
 
             OnModelCreatingPartial(modelBuilder);

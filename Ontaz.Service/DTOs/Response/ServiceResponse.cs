@@ -30,5 +30,7 @@ namespace Ontaz.Service.DTOs.Response
         public int DiscountService { get; set; }
         public double Longitud { get; set; }
         public double Latitud { get; set; }
+        public decimal Raiting { get; set; }
+        public string WhatsappService { get; set; } = "";
     }
 }
