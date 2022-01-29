@@ -55,5 +55,46 @@ namespace Ontaz.Service.Service
 
             return result; 
         }
+
+
+        public async Task<ResponseModel> GetServiceByID(long IdService)
+        {
+            var result = new ResponseModel();
+
+            try
+            {
+                var service = await _context.Services
+                    .Where(x => x.IdService == IdService && x.RegDeleted == false && x.VerifiedService == true)
+                    .Select( x => new ServiceResponse
+                    {
+                        IdService = x.IdService,
+                        IdCategory = x.IdCategory ?? 0,
+                        DescriptionService = x.DescriptionService ?? "",
+                        DiscountService = x.DiscountService ?? 0,
+                        HomeService = x.HomeService ?? false,
+                        ImageService = x.ImageService ?? "",
+                        NameService = x.NameService ?? "",
+                        InternationalCode = x.InternationalCode ?? "",
+                        Latitud = x.Latitud ?? 0.0,
+                        Longitud = x.Longitud ?? 0.0,
+                        PhoneService = x.PhoneService ?? "",
+                        VerifiedService = x.VerifiedService ?? false
+                    })
+                    .ToListAsync();
+
+                result = new ResponseModel()
+                {
+                    Data= service,
+                    StatusCode = 200,
+                    Success= true
+                };
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return result;
+        }
     }
 }
