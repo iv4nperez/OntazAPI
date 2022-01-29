@@ -63,7 +63,7 @@ namespace Ontaz.Service.Service
 
             try
             {
-                var service = await _context.Services
+                var service = await _context.VwServicesDetails
                     .Where(x => x.IdService == IdService && x.RegDeleted == false && x.VerifiedService == true)
                     .Select( x => new ServiceResponse
                     {
@@ -78,7 +78,10 @@ namespace Ontaz.Service.Service
                         Latitud = x.Latitud ?? 0.0,
                         Longitud = x.Longitud ?? 0.0,
                         PhoneService = x.PhoneService ?? "",
-                        VerifiedService = x.VerifiedService ?? false
+                        VerifiedService = x.VerifiedService ?? false,
+                        Raiting = x.Raiting!.Value,
+                        WhatsappService = x.WhatsappService ?? ""
+
                     })
                     .SingleAsync();
 
