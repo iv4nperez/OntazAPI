@@ -80,7 +80,7 @@ namespace Ontaz.Service.Service
                         PhoneService = x.PhoneService ?? "",
                         VerifiedService = x.VerifiedService ?? false
                     })
-                    .ToListAsync();
+                    .SingleAsync();
 
                 result = new ResponseModel()
                 {
