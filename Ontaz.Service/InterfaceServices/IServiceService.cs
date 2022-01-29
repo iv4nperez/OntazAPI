@@ -10,5 +10,6 @@ namespace Ontaz.Service.InterfaceServices
     public interface IServiceService
     {
         Task<ResponseModel> GetServices(long IdCategory);
+        Task<ResponseModel> GetServiceByID(long IdService);
     }
 }

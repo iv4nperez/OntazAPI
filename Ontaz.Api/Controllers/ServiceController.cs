@@ -24,6 +24,14 @@ namespace Ontaz.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        [Route("GetServiceById")]
+        public async Task<IActionResult> GetServiceById(long IdService)
+        {
+            var result = await _serviceService.GetServiceByID(IdService);
+            return Ok(result);
+        }
+
         
     }
 }
