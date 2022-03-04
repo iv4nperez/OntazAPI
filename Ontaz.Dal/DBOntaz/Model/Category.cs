@@ -7,7 +7,7 @@ namespace Ontaz.Dal.DBOntaz.Model
     {
         public Category()
         {
-            Services = new HashSet<Service>();
+            ServiceCommerces = new HashSet<ServiceCommerce>();
         }
 
         public long IdCategory { get; set; }
@@ -15,6 +15,6 @@ namespace Ontaz.Dal.DBOntaz.Model
         public string? UrlCategory { get; set; }
         public bool? RegDeleted { get; set; }
 
-        public virtual ICollection<Service> Services { get; set; }
+        public virtual ICollection<ServiceCommerce> ServiceCommerces { get; set; }
     }
 }

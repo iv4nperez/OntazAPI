@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Params\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ontaz.Dal\Ontaz.Dal.csproj" />
   </ItemGroup>
 

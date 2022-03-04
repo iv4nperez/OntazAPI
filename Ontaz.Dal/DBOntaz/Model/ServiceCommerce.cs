@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Ontaz.Dal.DBOntaz.Model
 {
-    public partial class Service
+    public partial class ServiceCommerce
     {
-        public Service()
+        public ServiceCommerce()
         {
             Advertisings = new HashSet<Advertising>();
             Payments = new HashSet<Payment>();
