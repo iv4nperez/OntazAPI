@@ -7,7 +7,7 @@ namespace Ontaz.Dal.DBOntaz.Model
     {
         public User()
         {
-            Services = new HashSet<Service>();
+            ServiceCommerces = new HashSet<ServiceCommerce>();
         }
 
         public long IdUser { get; set; }
@@ -21,6 +21,6 @@ namespace Ontaz.Dal.DBOntaz.Model
         public bool? RegDeleted { get; set; }
 
         public virtual City? IdCityNavigation { get; set; }
-        public virtual ICollection<Service> Services { get; set; }
+        public virtual ICollection<ServiceCommerce> ServiceCommerces { get; set; }
     }
 }

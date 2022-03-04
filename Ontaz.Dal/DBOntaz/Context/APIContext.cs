@@ -23,7 +23,7 @@ namespace Ontaz.Dal.DBOntaz.Context
         public virtual DbSet<Country> Countries { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
-        public virtual DbSet<Service> Services { get; set; } = null!;
+        public virtual DbSet<ServiceCommerce> ServiceCommerces { get; set; } = null!;
         public virtual DbSet<State> States { get; set; } = null!;
         public virtual DbSet<Subscription> Subscriptions { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
@@ -188,12 +188,12 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasConstraintName("fk_product_service");
             });
 
-            modelBuilder.Entity<Service>(entity =>
+            modelBuilder.Entity<ServiceCommerce>(entity =>
             {
                 entity.HasKey(e => e.IdService)
                     .HasName("pk_id_service");
 
-                entity.ToTable("service");
+                entity.ToTable("serviceCommerce");
 
                 entity.Property(e => e.IdService).HasColumnName("id_service");
 
@@ -253,12 +253,12 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasColumnName("whatsapp_service");
 
                 entity.HasOne(d => d.IdCategoryNavigation)
-                    .WithMany(p => p.Services)
+                    .WithMany(p => p.ServiceCommerces)
                     .HasForeignKey(d => d.IdCategory)
                     .HasConstraintName("fk_service_category");
 
                 entity.HasOne(d => d.IdUserNavigation)
-                    .WithMany(p => p.Services)
+                    .WithMany(p => p.ServiceCommerces)
                     .HasForeignKey(d => d.IdUser)
                     .HasConstraintName("fk_service_user");
             });

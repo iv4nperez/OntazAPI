@@ -1,4 +1,5 @@
-﻿using Ontaz.Service.helpers;
+﻿using Ontaz.Service.DTOs.Params;
+using Ontaz.Service.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace Ontaz.Service.InterfaceServices
     {
         Task<ResponseModel> GetServices(long IdCategory);
         Task<ResponseModel> GetServiceByID(long IdService);
+        Task<ResponseModel> GetServiceByIdUser(long IdUser);
+        Task<ResponseModel> SaveOrEdit(ServiceParamModel paramModel);
     }
 }

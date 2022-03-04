@@ -13,6 +13,6 @@ namespace Ontaz.Dal.DBOntaz.Model
         public int? DiscountProduct { get; set; }
         public bool? RegDeleted { get; set; }
 
-        public virtual Service? IdServiceNavigation { get; set; }
+        public virtual ServiceCommerce? IdServiceNavigation { get; set; }
     }
 }

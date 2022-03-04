@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Ontaz.Service.DTOs.Params;
 using Ontaz.Service.InterfaceServices;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -32,6 +33,20 @@ namespace Ontaz.Api.Controllers
             return Ok(result);
         }
 
-        
+        [HttpGet]
+        [Route("GetServiceByIdUser")]
+        public async Task<IActionResult> GetServiceByIdUser(long IdUser)
+        {
+            var result = await _serviceService.GetServiceByIdUser(IdUser);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("SaveOrEdit")]
+        public async Task<IActionResult> SaveOrEdit(ServiceParamModel paramModel)
+        {
+            var result = await _serviceService.SaveOrEdit(paramModel);
+            return Ok(result);
+        }
     }
 }
