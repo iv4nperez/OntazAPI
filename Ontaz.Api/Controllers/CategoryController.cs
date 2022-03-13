@@ -17,9 +17,9 @@ namespace Ontaz.Api.Controllers
         }
         // GET: api/<CategoryController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(bool AddPromotions)
         {
-            var result = await _categoryService.GetCategories();
+            var result = await _categoryService.GetCategories(AddPromotions);
 
        
             return Ok(result);
