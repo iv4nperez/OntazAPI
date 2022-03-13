@@ -36,6 +36,7 @@ namespace Ontaz.Service.Service
                         DescriptionService = x.DescriptionService ?? "",
                         DiscountService = x.DiscountService ?? 0,
                         Raiting = x.Raiting,
+                        IsNewCommerce = IsNewCommerce(x.RegistrationDate)
                     })
                     .ToListAsync();
 
@@ -181,6 +182,21 @@ namespace Ontaz.Service.Service
             }
 
             return result;
+        }
+
+
+        public static bool IsNewCommerce(DateTime? date)
+        {
+            if(date == null) return false;
+
+
+            var dateMoreFiveDays = date.Value.AddDays(5);
+
+            if (dateMoreFiveDays >= DateTime.Now)
+                return true;
+
+
+            return false;
         }
     }
 }

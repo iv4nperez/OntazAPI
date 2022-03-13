@@ -389,6 +389,8 @@ namespace Ontaz.Dal.DBOntaz.Context
 
                 entity.Property(e => e.Raiting).HasColumnName("raiting");
 
+                entity.Property(e => e.RegistrationDate).HasColumnType("datetime");
+
                 entity.Property(e => e.VerifiedService).HasColumnName("verified_service");
             });
 

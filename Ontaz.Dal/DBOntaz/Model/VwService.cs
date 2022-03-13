@@ -14,5 +14,6 @@ namespace Ontaz.Dal.DBOntaz.Model
         public int? DiscountService { get; set; }
         public int Raiting { get; set; }
         public bool? VerifiedService { get; set; }
+        public DateTime? RegistrationDate { get; set; }
     }
 }
