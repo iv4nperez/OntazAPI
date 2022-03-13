@@ -28,7 +28,7 @@ namespace Ontaz.Service.Service
             try
             {
                 var services = await _context.VwServices
-                    .Where(x => x.IdCategory == IdCategory)
+                    .Where(x => x.IdCategory == IdCategory && x.VerifiedService == true)
                     .Select( x => new ServiceListResponse {
                         IdService = x.IdService,
                         ImageService = x.ImageService ?? "",

@@ -13,5 +13,6 @@ namespace Ontaz.Dal.DBOntaz.Model
         public string? ImageService { get; set; }
         public int? DiscountService { get; set; }
         public int Raiting { get; set; }
+        public bool? VerifiedService { get; set; }
     }
 }
