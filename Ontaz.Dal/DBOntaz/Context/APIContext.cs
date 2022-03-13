@@ -386,6 +386,8 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasColumnName("name_service");
 
                 entity.Property(e => e.Raiting).HasColumnName("raiting");
+
+                entity.Property(e => e.VerifiedService).HasColumnName("verified_service");
             });
 
             modelBuilder.Entity<VwServicesDetail>(entity =>
