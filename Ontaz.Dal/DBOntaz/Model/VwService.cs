@@ -6,6 +6,7 @@ namespace Ontaz.Dal.DBOntaz.Model
     public partial class VwService
     {
         public long IdService { get; set; }
+        public long? IdUser { get; set; }
         public long? IdCategory { get; set; }
         public string? NameService { get; set; }
         public string? DescriptionService { get; set; }
