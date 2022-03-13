@@ -108,30 +108,22 @@ namespace Ontaz.Service.Service
 
             try
             {
-                var service = await _context.VwServicesDetails
-                    .Where(x => x.IdUser == IdUser && x.RegDeleted == false)
-                    .Select(x => new ServiceResponse
+                var services = await _context.VwServices
+                    .Where(x => x.IdUser == IdUser )
+                    .Select(x => new ServiceListResponse
                     {
                         IdService = x.IdService,
-                        IdCategory = x.IdCategory ?? 0,
-                        DescriptionService = x.DescriptionService ?? "",
-                        DiscountService = x.DiscountService ?? 0,
-                        HomeService = x.HomeService ?? false,
                         ImageService = x.ImageService ?? "",
                         NameService = x.NameService ?? "",
-                        InternationalCode = x.InternationalCode ?? "",
-                        Latitud = x.Latitud ?? 0.0,
-                        Longitud = x.Longitud ?? 0.0,
-                        PhoneService = x.PhoneService ?? "",
-                        VerifiedService = x.VerifiedService ?? false,
-                        Raiting = x.Raiting!.Value,
-                        WhatsappService = x.WhatsappService ?? ""
+                        DescriptionService = x.DescriptionService ?? "",
+                        DiscountService = x.DiscountService ?? 0,
+                        Raiting = x.Raiting,
                     })
                     .ToListAsync();
 
                 result = new ResponseModel()
                 {
-                    Data = service,
+                    Data = services,
                     StatusCode = 200,
                     Success = true
                 };

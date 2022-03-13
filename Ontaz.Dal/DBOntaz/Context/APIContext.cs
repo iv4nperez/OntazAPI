@@ -373,6 +373,8 @@ namespace Ontaz.Dal.DBOntaz.Context
 
                 entity.Property(e => e.IdService).HasColumnName("id_service");
 
+                entity.Property(e => e.IdUser).HasColumnName("id_user");
+
                 entity.Property(e => e.ImageService)
                     .HasMaxLength(1000)
                     .IsUnicode(false)
