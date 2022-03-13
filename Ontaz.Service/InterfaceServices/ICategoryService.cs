@@ -9,6 +9,6 @@ namespace Ontaz.Service.InterfaceServices
 {
     public interface ICategoryService
     {
-        Task<ResponseModel> GetCategories();
+        Task<ResponseModel> GetCategories(bool AddPromotions);
     }
 }

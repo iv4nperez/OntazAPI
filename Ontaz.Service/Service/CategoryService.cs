@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ontaz.Dal.DBOntaz.Context;
+using Ontaz.Dal.DBOntaz.Model;
 using Ontaz.Service.helpers;
 using Ontaz.Service.InterfaceServices;
 using System;
@@ -18,7 +19,7 @@ namespace Ontaz.Service.Service
             _context = context;
         }
 
-        public async Task<ResponseModel> GetCategories()
+        public async Task<ResponseModel> GetCategories(bool AddPromotions)
         {
             var result = new ResponseModel();
 
@@ -27,6 +28,11 @@ namespace Ontaz.Service.Service
                 var categories = await _context.Categories
                     .Where(x => x.RegDeleted == false)
                     .ToListAsync();
+
+                if (!AddPromotions)
+                {
+                    categories = categories.Where(x => x.IdCategory != 1).ToList();
+                }
 
                 result.Data = categories;
                 result.Success = true;
