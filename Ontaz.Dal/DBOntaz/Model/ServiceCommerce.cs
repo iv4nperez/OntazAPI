@@ -27,6 +27,7 @@ namespace Ontaz.Dal.DBOntaz.Model
         public double? Latitud { get; set; }
         public bool? RegDeleted { get; set; }
         public string? WhatsappService { get; set; }
+        public DateTime? RegistrationDate { get; set; }
 
         public virtual Category? IdCategoryNavigation { get; set; }
         public virtual User? IdUserNavigation { get; set; }

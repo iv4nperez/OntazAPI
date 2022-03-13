@@ -243,6 +243,8 @@ namespace Ontaz.Dal.DBOntaz.Context
                     .HasColumnName("reg_deleted")
                     .HasDefaultValueSql("((0))");
 
+                entity.Property(e => e.RegistrationDate).HasColumnType("datetime");
+
                 entity.Property(e => e.VerifiedService)
                     .HasColumnName("verified_service")
                     .HasDefaultValueSql("((0))");

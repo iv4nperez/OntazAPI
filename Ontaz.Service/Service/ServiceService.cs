@@ -163,7 +163,8 @@ namespace Ontaz.Service.Service
                         PhoneService = paramModel.PhoneService,
                         RegDeleted = false,
                         VerifiedService = false,
-                        WhatsappService = paramModel.WhatsappService
+                        WhatsappService = paramModel.WhatsappService,
+                        RegistrationDate = DateTime.Now,
                     };
 
                     _context.Entry(service).State = EntityState.Added;
